@@ -4,9 +4,16 @@ import { DatabaseModule } from './database/database.module';
 import { TodoModule } from './todo/todo.module';
 import { HealthcheckModule } from './healthcheck/healthcheck.module';
 import { AppController } from './app/app.controller';
+import { AdminbroModule } from './adminbro/adminbro.module';
 
 @Module({
-  imports: [ConfigurationModule, DatabaseModule, TodoModule, HealthcheckModule],
+  imports: [
+    ConfigurationModule,
+    DatabaseModule,
+    AdminbroModule,
+    TodoModule,
+    HealthcheckModule,
+  ],
   controllers: [AppController],
   providers: [],
 })

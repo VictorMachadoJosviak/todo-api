@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -7,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Todo {
+export class Todo extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -17,7 +18,7 @@ export class Todo {
   @Column()
   description: string;
 
-  @Column()
+  @Column({ default: false })
   completed: boolean;
 
   @CreateDateColumn()
@@ -27,6 +28,7 @@ export class Todo {
   updatedAt: Date;
 
   constructor(todo?: Partial<Todo>) {
+    super();
     Object.assign(this, todo);
   }
 }
